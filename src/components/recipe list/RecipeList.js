@@ -28,16 +28,19 @@ export default function RecipeList({ recipes }) {
   }
 
   return (
-    <div className='recipe-list'>
-        {recipes.map(recipe => (
-            <div key={recipe.id} className={`card ${mode}`}>
-                <h3>{recipe.title}</h3>
-                <p>{recipe.cookingTime} to make.</p>
-                <div>{recipe.method.substring(0, 100)}...</div>
-                <Link to={`/recipes/${recipe.id}`}>Cook this</Link>
-                <div style={{color: color}} onClick={() => handleDelete(recipe.id)}> <MdDeleteForever className='delete' /> </div>
-            </div>
-        ))}
-    </div>
+      <>
+      <div className='recipe-list'>
+          {recipes.map(recipe => (
+              <div key={recipe.id} className={`card ${mode}`}>
+                  <h3>{recipe.title}</h3>
+                  <p>{recipe.cookingTime} to make.</p>
+                  <div>{recipe.method.substring(0, 100)}...</div>
+                  <Link to={`/recipes/${recipe.id}`}>Cook this</Link>
+                  <div style={{color: color}} onClick={() => handleDelete(recipe.id)}> <MdDeleteForever className='delete' /> </div>
+              </div>
+          ))}
+      </div>
+      <Link to='/create' style={{ color: color, textAlign: 'center'}}>Add More...</Link>
+      </>
   )
 }
