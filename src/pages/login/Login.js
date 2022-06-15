@@ -32,9 +32,10 @@ export default function Login() {
             if (err.message === 'Firebase: Error (auth/wrong-password).') {
                 setError('Wrong password')
             }
-            // setError(err.message)
+            if (err.message === 'Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).') {
+                setError('Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later')
+            }
         }
-
         setLoading(false)
     }
 
