@@ -23,7 +23,18 @@
   .recipe li:last-child::after {
     content: ".";
   }
+  .right {
+    margin-right: .5rem;
+  }
   .method {
     text-align: center;
     line-height: 1.5em;
+  }
+  .recipe.dark {
+    background: #555;
+    color: #e4e4e4;
+  }
+  .recipe.dark h2,
+  .recipe.dark .ing {
+    color: #e4e4e4;
   }

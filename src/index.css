@@ -34,3 +34,26 @@ input, textarea {
   text-align: center;
   margin: 40px auto;
 }
+.error {
+  background: crimson;
+  color: #fff;
+  border-radius: .4rem;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error-icon {
+  margin-right: .5rem;
+}
+.message{
+  background: green;
+  color: #fff;
+  border-radius: .4rem;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

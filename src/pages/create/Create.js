@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import './Create.css'
 import { useNavigate } from 'react-router-dom'
 import { database } from '../../firebase'
 import { collection, addDoc } from 'firebase/firestore'
+import { useTheme } from '../../context/ThemeContext'
 
 export default function Create() {
   const [title, setTitle] = useState('')
@@ -13,6 +14,8 @@ export default function Create() {
   const [error, setError] = useState(false)
   const ingredientInput = useRef(null)
   const navigate = useNavigate()
+
+  const { color, mode } = useTheme()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -39,9 +42,8 @@ export default function Create() {
   }
 
   return (
-    <div className='create'>
+    <div className={`create ${mode}`}>
       <h2 className='page-title'>Add a New Recipe</h2>
-      <p className='error'>{error}</p>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Recipe Title</span>
@@ -62,7 +64,7 @@ export default function Create() {
               onChange={(e) => setNewIngredient(e.target.value)}
               ref={ingredientInput}
             />
-            <button className='btn' onClick={handleAdd}>add</button>
+            <button className='add-btn' style={{background: color}} onClick={handleAdd}>add</button>
           </div>
         </label>
         {ingredients.map(i => <em key={i}>{i}, </em>)}
@@ -87,7 +89,7 @@ export default function Create() {
           />
         </label>
 
-        <button className='btn'>Submit</button>
+        <button className='btn' style={{background: color}}>Submit</button>
       </form>
     </div>
   )

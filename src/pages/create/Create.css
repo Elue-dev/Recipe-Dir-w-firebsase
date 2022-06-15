@@ -13,7 +13,7 @@
   }
   .create button {
     display: block;
-    width: 100px;
+    width: 480px;
     font-size: 1em;
     color: #fff;
     padding: 8px 20px;
@@ -24,10 +24,26 @@
     text-decoration: none;
     margin: 20px auto;
   }
+  .create .add-btn {
+    width: 100px;
+  }
   .ingredients{
     display: flex;
     align-items: center;
   }
   .ingredients button{
     margin: 0 0 0 10px;
+  }
+  .create.dark,
+  .create.dark h2 {
+    color: #e4e4e4;
+  }
+
+    @media (max-width: 500px) {
+      .create form {
+          margin: 0 1rem;
+      }
+      .create .btn {
+          width: 406px;
+      }
   }
