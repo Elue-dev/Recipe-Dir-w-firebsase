@@ -30,7 +30,7 @@ export default function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            navigate('/login')
+            navigate('/create')
         } catch (err){
             if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
                 setError('Email already in use')
@@ -40,6 +40,9 @@ export default function SignUp() {
             }
             if (err.message === 'Firebase: Error (auth/invalid-email).') {
                 setError('Invalid email')
+            }
+            if (err.message === 'Firebase: Error (auth/network-request-failed).') {
+                setError('Please check your internet connection')
             }
         }
 
@@ -63,7 +66,7 @@ export default function SignUp() {
 
             <label>
                 <span>Confirm Password</span>
-                    <input type='password' ref={passwordConfirmRef} required placeholder='Password confirmation' />
+                    <input type='password' ref={passwordConfirmRef} required placeholder='Confirm your password' />
             </label>
 
             <button className='btn' style={{background: color}} disabled={loading} type='submit'>Sign Up</button>
