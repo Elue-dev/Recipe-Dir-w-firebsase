@@ -53,16 +53,23 @@
       flex-direction: column;
       justify-content: space-around;
     }
-    .brand, .logout, .welcome {
+   .logout, .brand {
       margin-bottom: 1rem;
+      margin-right: 4rem;
+    }
+    .welcome {
+      margin-right: 2rem;
+      margin-bottom: .9rem;
     }
     nav h1 {
       font-size: 1.4rem;
       text-align: center;
-      margin-left: 7rem;
+      margin-left: 6rem;
     }
     .navbar a:last-child {
       padding: 3px;
       font-size: 1.2rem;
+      margin-right: 4rem;
+      margin-right: 4rem;
     }
   }
