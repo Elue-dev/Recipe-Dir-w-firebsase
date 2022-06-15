@@ -11,7 +11,7 @@ export default function ThemeSelector() {
     <div className='theme-selector'>
         <div className='mode-toggle'>
             { mode === 'light' ? <MdBrightnessHigh style={{cursor: 'pointer'}} className='mode-icon' onClick={(() => changeMode('dark'))} /> :
-                 <MdBrightnessHigh style={{cursor: 'pointer', filter: 'invert(100%)'}} onClick={(() => changeMode('light'))} />
+                 <MdBrightnessHigh style={{cursor: 'pointer', filter: 'invert(100%)'}} className='mode-icon' onClick={(() => changeMode('light'))} />
             }
          </div>
         <div className='theme-buttons'>
