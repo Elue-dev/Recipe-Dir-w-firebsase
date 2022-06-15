@@ -70,7 +70,6 @@ input, textarea {
     width: 90%;
   }
 } 
-
 @media (max-width: 500px) {
   body {
     font-size: 1em;

@@ -77,6 +77,7 @@
   @media (max-width: 500px) {
     .recipe-list {
       grid-template-columns: 1fr 1fr;
-      margin: 1rem;
+      margin: .6rem;
+      gap: .3rem;
     }
   }
