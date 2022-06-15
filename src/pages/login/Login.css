@@ -31,10 +31,6 @@
 .login label{
     margin-bottom: 0em;
 }
-GoogleButton {
-    width: 100px;
-    display: none;
-}
 .login .btn {
     display: block;
     width: 480px;
@@ -72,5 +68,8 @@ GoogleButton {
     }
     .login .btn {
         width: 349px;
+    }
+    .forgot, .login .switch {
+        font-size: 1em;
     }
 }

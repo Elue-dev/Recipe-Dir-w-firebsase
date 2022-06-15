@@ -26,7 +26,13 @@ export default function Login() {
             await login(emailRef.current.value, passwordRef.current.value)
             navigate('/create')
         } catch (err){
-            setError(err.message)
+            if (err.message === 'Firebase: Error (auth/user-not-found).') {
+                setError('User not found')
+            }
+            if (err.message === 'Firebase: Error (auth/wrong-password).') {
+                setError('Wrong password')
+            }
+            // setError(err.message)
         }
 
         setLoading(false)

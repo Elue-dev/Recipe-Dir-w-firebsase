@@ -40,11 +40,12 @@ input, textarea {
   background: crimson;
   color: #fff;
   border-radius: .4rem;
-  padding: 1rem;
+  padding: .2rem;
   font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 85%;
 }
 .error-icon {
   margin-right: .5rem;
@@ -59,3 +60,13 @@ input, textarea {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1em;
+  }
+  .error {
+    padding: .5rem;
+    width: 90%;
+  }
+} 

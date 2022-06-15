@@ -38,6 +38,9 @@ export default function SignUp() {
             if (err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
                 setError('Password should be at least 6 characters')
             }
+            if (err.message === 'Firebase: Error (auth/invalid-email).') {
+                setError('Invalid email')
+            }
         }
 
         setLoading(false)

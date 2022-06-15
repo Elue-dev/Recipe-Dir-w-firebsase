@@ -49,4 +49,7 @@
     .signup .btn {
         width: 349px;
     }
+    .signup .switch {
+        font-size: 1em;
+    }
 }
