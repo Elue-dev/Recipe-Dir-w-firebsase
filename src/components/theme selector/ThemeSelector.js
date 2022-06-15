@@ -7,6 +7,7 @@ const themeColors = ['#5b3b2e', '#249c6b', 'coral']
 export default function ThemeSelector() {
 
     const { changeColor, changeMode, mode } = useTheme()
+
   return (
     <div className='theme-selector'>
         <div className='mode-toggle'>

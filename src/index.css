@@ -61,12 +61,18 @@ input, textarea {
   align-items: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   body {
-    font-size: 1em;
+    font-size: 1.2em;
   }
   .error {
     padding: .5rem;
     width: 90%;
+  }
+} 
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1em;
   }
 } 

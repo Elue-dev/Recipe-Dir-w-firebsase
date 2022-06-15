@@ -16,12 +16,18 @@
   .mode-toggle {
     margin-right: auto;
   }
+
+  @media (max-width: 700px) {
+    .theme-selector {
+      margin: 20px;
+      }
+  }
   
-@media (max-width: 500px) {
-  .mode-icon {
-    margin-left: 1rem
+  @media (max-width: 500px) {
+    .mode-icon {
+      margin-left: 1rem
+    }
+    .theme-buttons {
+      margin-right: 1rem;
+    }
   }
-  .theme-buttons {
-    margin-right: 1rem;
-  }
-}

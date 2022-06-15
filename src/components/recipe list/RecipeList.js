@@ -10,7 +10,7 @@ export default function RecipeList({ recipes }) {
 
   if (recipes.length === 0) {
     return (
-      <div className={`error ${mode}`}>No recipes to load <br /> 
+      <div className={`empty ${mode}`}>No recipes to load <br /> 
         <Link className={mode} to='/create'><b>Start adding some!</b></Link>
       </div>
     )

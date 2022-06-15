@@ -37,10 +37,10 @@
     color: #e4e4e4;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     .recipe {
       max-width: 1200px;
-      margin: 1rem;
+      margin: 2rem 1rem;
       }
       
   }

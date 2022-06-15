@@ -50,20 +50,20 @@ export default function SignUp() {
     <div className={`signup ${mode}`}>
         <h2 className='title'>Sign Up</h2>
         {error && <p className='error'> <RiErrorWarningFill className='error-icon' />{error}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete='on'>
             <label>
                 <span>Email</span>
-                    <input type='email' ref={emailRef} required />
+                    <input type='email' ref={emailRef} required placeholder='e.g example@gmail.com'/>
             </label>
 
             <label>
                 <span>Password</span>
-                    <input type='password' ref={passwordRef} required />
+                    <input type='password' ref={passwordRef} required  placeholder='Enter a strong password'/>
             </label>
 
             <label>
                 <span>Confirm Password</span>
-                    <input type='password' ref={passwordConfirmRef} required />
+                    <input type='password' ref={passwordConfirmRef} required placeholder='Password confirmation' />
             </label>
 
             <button className='btn' style={{background: color}} disabled={loading} type='submit'>Sign Up</button>

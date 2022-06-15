@@ -12,6 +12,7 @@ import { useTheme } from './context/ThemeContext';
 import SignUp from './pages/signup/SignUp';
 import Searchbar from './components/search bar/Searchbar';
 import ForgotPassword from './pages/forgot password/ForgotPassword';
+import Welcome from './components/welcome/Welcome';
 
 export default function App() {
 
@@ -20,6 +21,7 @@ export default function App() {
     <div className={`App ${mode}`}>
       <Router>
         <Navbar />
+        <Welcome />
         <ThemeSelector />
         {/* <Searchbar /> */}
         <Routes>

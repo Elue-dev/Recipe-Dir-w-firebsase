@@ -7,11 +7,7 @@ import {
     onAuthStateChanged,
     sendPasswordResetEmail,
     GoogleAuthProvider,
-    GithubAuthProvider,
     signInWithPopup,
-    updateEmail,
-    updatePassword,
-    deleteUser
 } from 'firebase/auth'
 
 const AuthContext = React.createContext()
@@ -44,11 +40,6 @@ export function AuthProvider({ children }) {
         const googleAuthProvider =  new GoogleAuthProvider()
         return signInWithPopup(auth, googleAuthProvider)
     }
-
-    function githubSignIn() {
-        const githubAuthProvider =  new GithubAuthProvider()
-        return signInWithPopup(auth, githubAuthProvider)
-    }
     
 
     useEffect(() => {
@@ -62,18 +53,10 @@ export function AuthProvider({ children }) {
         }
     }, [])
 
-    const value = {
-        user,
-        signup,
-        login,
-        logout,
-        resetPassword,
-        googleSignIn,
-        githubSignIn,
-    }
+    const values = { user, signup, login, logout, resetPassword, googleSignIn }
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={values}>
         {!loading && children}
     </AuthContext.Provider>
   )

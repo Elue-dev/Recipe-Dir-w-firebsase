@@ -54,7 +54,10 @@
   .recipe-list .card.dark {
     background: #555;
   }
-  .error.dark,
+  .empty {
+    text-align: center;
+  }
+  .empty.dark,
   a.dark {
     color: #e4e4e4;
   }
@@ -64,10 +67,16 @@
     color: #e4e4e4;
   }
 
+  @media (max-width: 700px) {
+    .recipe-list {
+      grid-template-columns: 1fr 1fr;
+      margin: 20px;
+      }
+  }
+
   @media (max-width: 500px) {
     .recipe-list {
-      grid-template-columns: 1fr;
-      max-width: 1200px;
+      grid-template-columns: 1fr 1fr;
       margin: 1rem;
     }
   }

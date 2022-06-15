@@ -31,45 +31,12 @@
   .welcome{
     font-size: 1rem;
   }
-  .logout{
-    color: #fff;
-    text-decoration: none;
-    margin-left: 40px;
-    padding: .3rem;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-    font-size: .9rem;
-    font-weight: 600;
-  }
 
   @media (max-width: 500px) {
-    .navbar nav {
-      display: flex;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-   .logout, .brand {
-      margin-bottom: 1rem;
-      margin-right: 4rem;
-    }
-    .welcome {
-      margin-right: 2rem;
-      margin-bottom: .9rem;
-    }
-    nav h1 {
-      font-size: 1.4rem;
-      text-align: center;
-      margin-left: 6rem;
+    .brand h1 {
+      font-size: 1.3rem;
     }
     .navbar a:last-child {
       padding: 3px;
-      font-size: 1.2rem;
-      margin-right: 4rem;
-      margin-right: 4rem;
     }
   }

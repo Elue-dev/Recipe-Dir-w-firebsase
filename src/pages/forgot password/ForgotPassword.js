@@ -43,10 +43,10 @@ export default function Login() {
             <h2 className='title'>Password Reset</h2>
             {error && <p className='error'><RiErrorWarningFill className='error-icon' />{error}</p>}
             {message && <p className='message'>{message}</p>}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} autoComplete='on'>
                 <label>
                     <span>Email</span>
-                    <input type='email' ref={emailRef} required />
+                    <input type='email' ref={emailRef} required placeholder='Enter your email' />
                 </label>
 
                 <button className='btn' style={{background: color}} disabled={loading}>Reset Password</button>
