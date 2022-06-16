@@ -13,7 +13,7 @@ export default function Navbar() {
     <div className='navbar' style={{ background: color}}>
         <nav>
             <Link to='/' className='brand'>
-                <h1>Recipe Directory</h1>
+                <h1>Recipe Dir</h1>
             </Link>
             {/* <Searchbar /> */}
             <Link to='/create' onClick={() => alert.show('You must have an account to add a recipe', {type: 'info'})}> 
