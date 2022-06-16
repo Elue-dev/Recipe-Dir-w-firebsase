@@ -24,7 +24,7 @@ export default function RecipeList({ recipes }) {
       deleteDoc(docRef).then((doc) => {
         doc.reset()
       })
-      alert.show('Recipe has been removed')
+      alert.show('Recipe has been removed', {type: 'success'})
     } catch(err) {
       console.log(err.message)
     }
