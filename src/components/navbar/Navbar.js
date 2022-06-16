@@ -15,7 +15,6 @@ export default function Navbar() {
             <Link to='/' className='brand'>
                 <h1>Recipe Dir</h1>
             </Link>
-            {/* <Searchbar /> */}
             <Link to='/create' onClick={() => alert.show('You must have an account to add a recipe', {type: 'info'})}> 
                 Add a Recipe
             </Link>
