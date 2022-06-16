@@ -12,12 +12,12 @@ export default function Navbar() {
   const { user } = useAuth()
   const navigate = useNavigate()
 
-  const handleAlert= (e) => {
-    e.preventDefault()
-
+  const handleAlert= (n) => {
     if (!user) {
       alert.show('You must have an account to add a recipe', {type: 'info'})
       navigate('/login')
+    } else {
+      navigate('/create')
     }
   }
 
