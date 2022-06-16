@@ -1,13 +1,25 @@
 import './Navbar.css'
 import { useTheme } from '../../context/ThemeContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Searchbar from '../search bar/Searchbar'
 import { useAlert } from 'react-alert'
+import { useAuth } from '../../context/AuthContext'
 
 export default function Navbar() {
 
   const { color } = useTheme()
   const alert = useAlert()
+  const { user } = useAuth()
+  const navigate = useNavigate()
+
+  const handleAlert= (e) => {
+    e.preventDefault()
+
+    if (!user) {
+      alert.show('You must have an account to add a recipe', {type: 'info'})
+      navigate('/login')
+    }
+  }
 
   return (
     <div className='navbar' style={{ background: color}}>
@@ -15,7 +27,7 @@ export default function Navbar() {
             <Link to='/' className='brand'>
                 <h1>Recipe Dir</h1>
             </Link>
-            <Link to='/create' onClick={() => alert.show('You must have an account to add a recipe', {type: 'info'})}> 
+            <Link to='/create' onClick={handleAlert}> 
                 Add a Recipe
             </Link>
         </nav>

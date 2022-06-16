@@ -43,7 +43,7 @@ export default function RecipeList({ recipes }) {
               </div>
           ))}
       </div>
-      <Link to='/create' style={{ color: color, textAlign: 'center'}}>Add More...</Link>
+      <Link to='/create' onclick={() => alert.show('You must have an account to add a recipe', {type: 'info'})} style={{ color: color, textAlign: 'center'}}>Add More...</Link>
       </>
   )
 }
