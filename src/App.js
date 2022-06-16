@@ -26,7 +26,7 @@ export default function App() {
         {/* <Searchbar /> */}
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route path='/create' element={<ProtectedRoute><Create /> </ProtectedRoute>} />
+          <Route path='/create' element={<ProtectedRoute><Create /></ProtectedRoute>} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />

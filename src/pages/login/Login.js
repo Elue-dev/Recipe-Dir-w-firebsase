@@ -3,9 +3,9 @@ import './Login.css'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import GoogleButton from 'react-google-button'
-import GithubButton from 'react-github-login-button'
 import { useTheme } from '../../context/ThemeContext'
 import { RiErrorWarningFill } from 'react-icons/ri'
+import { useAlert } from 'react-alert'
 
 export default function Login() {
 
@@ -16,6 +16,7 @@ export default function Login() {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const { color, mode } = useTheme()
+    const alert = useAlert()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -25,6 +26,7 @@ export default function Login() {
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
             navigate('/create')
+            alert.show('Successfully logged in', {type: 'success'})
         } catch (err){
             if (err.message === 'Firebase: Error (auth/user-not-found).') {
                 setError('User not found')
@@ -45,6 +47,7 @@ export default function Login() {
         try {
             await googleSignIn()
             navigate('/create')
+            alert.show('Successfully logged in', {type: 'success'})
         } catch(err) {
             setError(err.messasge)
         }

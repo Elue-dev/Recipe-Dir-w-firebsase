@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { database } from '../../firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import { useTheme } from '../../context/ThemeContext'
+import { useAlert } from 'react-alert'
 
 export default function Create() {
   const [title, setTitle] = useState('')
@@ -16,6 +17,7 @@ export default function Create() {
   const navigate = useNavigate()
 
   const { color, mode } = useTheme()
+  const alert = useAlert()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -24,6 +26,7 @@ export default function Create() {
     try {
       const colRef = collection(database, 'recipes')
       await addDoc(colRef, doc)
+      alert.show('Recipe has been added', {type: 'success'})
       navigate('/')
     } catch (err) {
       setError(err.message)

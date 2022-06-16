@@ -4,9 +4,11 @@ import { database } from '../../firebase'
 import { deleteDoc, doc} from 'firebase/firestore'
 import { MdDeleteForever } from 'react-icons/md'
 import { useTheme } from '../../context/ThemeContext'
+import { useAlert } from 'react-alert'
 
 export default function RecipeList({ recipes }) {
   const { color, mode } = useTheme()
+  const alert = useAlert()
 
   if (recipes.length === 0) {
     return (
@@ -22,6 +24,7 @@ export default function RecipeList({ recipes }) {
       deleteDoc(docRef).then((doc) => {
         doc.reset()
       })
+      alert.show('Recipe has been removed')
     } catch(err) {
       console.log(err.message)
     }
