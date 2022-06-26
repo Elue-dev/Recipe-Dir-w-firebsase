@@ -53,6 +53,12 @@
     font-size: 1.15rem;
     margin-bottom: 1rem;
 }
+.or {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.6rem;
+}
 .login.dark .title,
 .login.dark span,
 .login.dark .switch {

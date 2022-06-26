@@ -26,7 +26,13 @@
   .welcome-user.dark .logout:hover {
     color: #333;
   }
+  
 
+  @media (max-width : 1024px) {
+    .welcome-user {
+      margin: 1rem 21px;
+    }
+  }
   @media (max-width : 700px) {
     .welcome-user {
         margin: 1rem;

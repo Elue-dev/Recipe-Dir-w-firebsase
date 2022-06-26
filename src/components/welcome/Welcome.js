@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { useAlert } from 'react-alert'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useTheme } from '../../context/ThemeContext'
 import './Welcome.css'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Welcome() {
     const [error, setError] = useState('')
     const { user, logout } = useAuth()
     const { mode, color } = useTheme()
     const navigate = useNavigate()
-    const alert = useAlert()
 
     async function handleLogout() {
         setError('')
@@ -18,7 +18,7 @@ export default function Welcome() {
         try {
             await logout()
             navigate('/')
-            alert.show('Successfully logged out', {type: 'success'})
+            toast.success('Successfully logged out', {autoClose: 3000, pauseOnFocusLoss: false})
         }  catch(err) {
             setError(err.messsge)
         }
@@ -31,6 +31,7 @@ export default function Welcome() {
         {error && <p className='error'>{error}</p>}
         {user && <p className='welcome'>Welcome, <b>{user.email}!</b></p>}
         { user && <p onClick={handleLogout} className='logout'>Log Out</p>}
+        <ToastContainer/>
     </div>
   )
 }

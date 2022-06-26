@@ -4,7 +4,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { useTheme } from '../../context/ThemeContext'
 import { RiErrorWarningFill } from 'react-icons/ri'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function SignUp() {
     const emailRef = useRef()
@@ -15,7 +16,6 @@ export default function SignUp() {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const { color, mode }  = useTheme()
-    const alert = useAlert()
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -32,8 +32,8 @@ export default function SignUp() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            alert.show('Successfully signed up', {type: 'success'})
-            navigate('/create')
+            toast.success('Successfully signed up', {autoClose: 3000, pauseOnFocusLoss: false})
+            navigate('/')
         } catch (err){
             if (err.message === 'Firebase: Error (auth/email-already-in-use).') {
                 setError('Email already in use')

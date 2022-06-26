@@ -4,11 +4,11 @@ import { database } from '../../firebase'
 import { deleteDoc, doc} from 'firebase/firestore'
 import { MdDeleteForever } from 'react-icons/md'
 import { useTheme } from '../../context/ThemeContext'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function RecipeList({ recipes }) {
   const { color, mode } = useTheme()
-  const alert = useAlert()
 
   if (recipes.length === 0) {
     return (
@@ -24,7 +24,7 @@ export default function RecipeList({ recipes }) {
       deleteDoc(docRef).then((doc) => {
         doc.reset()
       })
-      alert.show('Recipe has been removed', {type: 'success'})
+      toast.success('Recipe has been removed', {autoClose: 3000, pauseOnFocusLoss: false})
     } catch(err) {
       console.log(err.message)
     }

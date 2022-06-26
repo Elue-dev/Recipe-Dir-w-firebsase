@@ -17,9 +17,9 @@
     margin-right: auto;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 1024px) {
     .theme-selector {
-      margin: 20px;
+      margin: 20px 25px;
       }
   }
   

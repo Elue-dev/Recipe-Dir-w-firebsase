@@ -17,6 +17,7 @@ import Welcome from './components/welcome/Welcome';
 export default function App() {
 
   const { mode } = useTheme()
+  
   return (
     <div className={`App ${mode}`}>
       <Router>

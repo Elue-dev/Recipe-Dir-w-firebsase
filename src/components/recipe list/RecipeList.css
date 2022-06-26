@@ -64,17 +64,27 @@
     color: #e4e4e4;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 1024px) {
+    .recipe-list {
+      margin: 40px 19px;
+      grid-gap: 10px;
+    }
+  }
+  @media (max-width: 768px) {
     .recipe-list {
       grid-template-columns: 1fr 1fr;
-      margin: 20px;
-      }
+      margin: 23px;
+    }
   }
-
   @media (max-width: 500px) {
     .recipe-list {
       grid-template-columns: 1fr 1fr;
       margin: .6rem;
       gap: .3rem;
+    }
+  }
+  @media (max-width: 370px) {
+    .recipe-list {
+      grid-template-columns: 1fr;
     }
   }

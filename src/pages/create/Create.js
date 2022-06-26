@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { database } from '../../firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import { useTheme } from '../../context/ThemeContext'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Create() {
   const [title, setTitle] = useState('')
@@ -17,16 +18,17 @@ export default function Create() {
   const navigate = useNavigate()
 
   const { color, mode } = useTheme()
-  const alert = useAlert()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const doc = ({ title, ingredients, method, cookingTime: cookingTime + 'minutes'})
 
+    if ([])
+
     try {
       const colRef = collection(database, 'recipes')
       await addDoc(colRef, doc)
-      alert.show('Recipe has been added', {type: 'success'})
+      toast.success('Recipe has been added', {autoClose: 3000})
       navigate('/')
     } catch (err) {
       setError(err.message)

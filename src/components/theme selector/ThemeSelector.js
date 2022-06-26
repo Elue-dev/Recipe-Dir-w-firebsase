@@ -2,7 +2,7 @@ import './ThemeSelector.css'
 import { useTheme } from '../../context/ThemeContext'
 import { MdBrightnessHigh } from 'react-icons/md'
 
-const themeColors = ['#5b3b2e', '#249c6b', 'coral']
+const themeColors = ['#5b3b2ecd', '#249c6b', 'coral']
 
 export default function ThemeSelector() {
 

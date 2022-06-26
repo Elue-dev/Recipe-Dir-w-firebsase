@@ -5,18 +5,19 @@ import { useAuth } from '../../context/AuthContext'
 import GoogleButton from 'react-google-button'
 import { useTheme } from '../../context/ThemeContext'
 import { RiErrorWarningFill } from 'react-icons/ri'
-import { useAlert } from 'react-alert'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Login() {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login, googleSignIn, githubSignIn } = useAuth()
+    const { login, googleSignIn } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const { color, mode } = useTheme()
-    const alert = useAlert()
+    
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -25,8 +26,8 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
-            navigate('/create')
-            alert.show('Successfully logged in', {type: 'success'})
+            navigate('/')
+            toast.success('Successfully logged in', {autoClose: 3000, pauseOnFocusLoss: false})
         } catch (err){
             if (err.message === 'Firebase: Error (auth/user-not-found).') {
                 setError('User not found')
@@ -46,8 +47,8 @@ export default function Login() {
 
         try {
             await googleSignIn()
-            navigate('/create')
-            alert.show('Successfully logged in', {type: 'success'})
+            navigate('/')
+            toast.success('Successfully logged in', {autoClose: 3000, pauseOnFocusLoss: false} )
         } catch(err) {
             setError(err.messasge)
         }
@@ -58,6 +59,9 @@ export default function Login() {
             <h2 className='title'>Log In</h2>
             {error && <p className='error'><RiErrorWarningFill className='error-icon' /> {error}</p>}
             <GoogleButton style={{ width: '90%', marginLeft: '1rem'}} type='dark' onClick={handleGoogleSignIn} />
+            <div className='or'>
+            <hr />or<hr />
+            </div>
             <form onSubmit={handleSubmit} autoComplete='on'>
                 <label>
                     <span>Email</span>
@@ -75,8 +79,8 @@ export default function Login() {
             </form>
             
             <div>
-            <p className='switch'>Don't have an account? <Link style={{ color: color}} to='/signup'>Sign Up</Link></p>
-         </div> 
+             <p className='switch'>Don't have an account? <Link style={{ color: color}} to='/signup'>Sign Up</Link></p>
+            </div> 
         </div>
   )
 }
